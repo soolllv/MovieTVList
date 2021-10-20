@@ -67,6 +67,7 @@ exports.signUpPost = [
             const friends = new Friends();
             friends.username = req.body.username;
             await friends.save();
+            next();
         }
     }
 ]
@@ -74,9 +75,9 @@ exports.loginGet = (req, res) =>{
     res.render('login', {title: "Login"});
 }
 exports.loginPost = Passport.authenticate('local', {
-    successFlash: 'You are now logged in',
     successRedirect: '/home',
     failureRedirect: '/login',
+    successFlash: 'You are now logged in',
     failureFlash: 'Login failed, try again!'
 });
 exports.logout = (req, res) =>{
