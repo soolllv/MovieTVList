@@ -1,0 +1,14 @@
+extends layout
+include mixins/_settings_profile
+include mixins/_settings_account
+
+block content
+    .fpage
+        p= title
+        .nav
+            a(href='/settings') Profile
+            a(href='/settings/account') Account
+        if url === '/settings/account'
+            +settings_account(userData)
+        else    
+            +settings_profile(userData)

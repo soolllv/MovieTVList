@@ -1,0 +1,13 @@
+mixin signup 
+
+    form(action="", method="post")
+        .form_input
+            input(type='text' name='username' placeholder='Username' required)
+        .form_input
+            input(type='email' name='email' placeholder='Email' required)
+        .form_input
+            input(type='password' name='password' placeholder='Password' required)
+        .form_input
+            input(type='password' name='confirm_password' placeholder='Confirm Password' required)
+        .form_input 
+            button(type='submit' class='button_small') Sign Up     

@@ -1,0 +1,58 @@
+mixin info_abt_mtv(parsedData)
+    
+    .info_abt_mtv 
+        .details 
+            div 
+            p Details
+        .type 
+            p Format
+            .value= parsedData.Type
+        hr
+        if(parsedData.totalSeasons)
+            .type 
+                p Total Seasons
+                .value= parsedData.totalSeasons
+            hr
+        .type 
+            p Duration
+            .value= parsedData.Runtime
+        hr
+        .type 
+            p Release Data
+            .value= parsedData.Released
+        hr
+        .type 
+            p IMDb score
+            .value= parsedData.imdbRating
+        hr
+        .type 
+            p MList score
+            .value SOON
+        hr
+        .type 
+            p Genres
+            .value= parsedData.Genre 
+        hr
+        .type 
+            p Favorites
+            .value SOON
+        hr
+        if( parsedData.Director ==='N/A')
+            .type 
+                p Writer/s
+                .value= parsedData.Writer
+            hr
+        else
+            .type 
+                p Director/s
+                .value= parsedData.Director  
+            hr          
+        .type 
+            p Country
+            .value= parsedData.Country
+        hr
+        if(parsedData.Production)
+            .type 
+                p Production
+                .value= parsedData.Production
+            hr

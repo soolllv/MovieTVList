@@ -1,0 +1,21 @@
+extends layout 
+include mixins/_mvtvPage
+
+block content
+    .fpage 
+        .search_cntnt
+            form()
+                .input_type
+                    label(for="search")= title
+                    select(name='movieOrTv')
+                        option(value='1') Movie
+                        option(value='2') TV-Series
+                .input_search
+                    input(type="text" name='search')
+                    input(type="submit" id="search_id" value="Submit") 
+            if cantFind
+                h3= cantFind
+        .res_cntnt
+            if parsedData
+                +mvtvpage(parsedData)
+                button(type='button' id='lm_btn') Load More

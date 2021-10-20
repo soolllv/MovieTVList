@@ -1,0 +1,24 @@
+mixin settings_account(userData)
+    .settings
+        form(action="", method="POST")
+            p Username
+            .stng-acc
+                input(type="input", name="username" id='username' placeholder=userData.username)
+            p Login
+            .stng-acc
+                input(type="email", name="email" id='email' placeholder=userData.email)
+            p Password
+            .stng-acc
+                input(type="password", name="password" id='password' placeholder='New password')
+            p Confirm Password
+            .stng-acc
+                input(type="password", name="confirm_password" id='confirm_password' placeholder='Confirm password')
+
+            p Confirm Current Password
+            .stng-acc
+                input(type="password", name="conCur_password" id='conCur_password' placeholder='Current password')        
+        
+            .stng-acc
+                button(type='submit' class="button_small") Confirm 
+            .delete-btn
+                button(type='button') Delete User Account

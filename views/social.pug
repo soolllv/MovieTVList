@@ -1,0 +1,9 @@
+extends layout 
+
+block content
+    each data in userData
+        each friend in data.friends
+            a(href=`/user/${friend}`)  
+                img(src='')
+            a(href=`/user/${friend}`)  
+                p= friend

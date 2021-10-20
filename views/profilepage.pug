@@ -1,0 +1,36 @@
+extends layout 
+include mixins/_activity
+
+block content
+    .user_info 
+      img(src=`http://res.cloudinary.com/deriq1lcf/image/upload/${user.image}.jpg`)
+      h3= title
+      if user.username!=userPage
+          form(action="", method="post") 
+                  input(type="submit", value="Follow", name='follow')
+
+    .user_bar
+      nav
+        ul
+          li
+            a(href=`/user/${userPage}`) Overview
+          li
+            a(href=`/user/${userPage}/movielist`) Movie List
+          li
+            a(href=`/user/${userPage}/tvlist`) TV-serials List    
+          li
+            a(href=`/user/${userPage}/social`) Social   
+    .fpage
+      .profile_page 
+        .profile_about
+            p= user.about
+        .profile_main  
+          h3 Activity
+          if user.username==userPage
+            .input_wrapper
+              input(type="text" name="home_sts" class="wrt_status" placeholder="Write a status...")
+              .hidden
+                .pub_can_btns
+                    button(type='submit' class='button_small' id='publish_btn') Publish
+                    button(type='button' class='button_small' id='cancel_btn') Cancel
+          +activity(newDPU)

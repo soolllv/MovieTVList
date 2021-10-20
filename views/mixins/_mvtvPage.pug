@@ -1,0 +1,12 @@
+mixin mvtvpage(parsedData)
+
+    .mvtv_container
+        each movieData in parsedData
+            .mvData
+                img(src=movieData.Poster) 
+                a(href=`/movie/${movieData.imdbID}`)= movieData.Title
+            
+        //if(myData.length > 0)
+            p= title.score 
+            should be ur score
+            p= title.numberOfSeries

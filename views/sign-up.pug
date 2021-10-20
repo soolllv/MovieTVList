@@ -1,0 +1,11 @@
+extends layout 
+include mixins/_signup
+
+block content
+    .fpage
+        h3= title
+        if errors
+            ul
+                each error in errors 
+                    li=error.msg
+        +signup 

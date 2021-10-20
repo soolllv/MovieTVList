@@ -1,0 +1,29 @@
+mixin mtpage(parsedData)
+
+    -var i = 0;
+    each data in parsedData
+        if data.status === 1
+            if i == 0
+                h3= 'Completed'
+                -i++;
+        else if data.status === 2 
+            if i == 1
+                h3= 'Planned'
+                -i++;
+        else if data.status === 4
+            if i==2
+                h3= 'Dropped'
+                -i++;
+        .mvtv_box
+            .mtv_data
+                a(href=`/movie/${data.movieId}`)= data.titlename
+                if data.my_rating
+                    p= `Score: ${data.my_rating}/10`
+            .mtv_img
+                img(src=data.titleimage) 
+            
+            
+        //if(myData.length > 0)
+            p= title.score 
+            should be ur score
+            p= title.numberOfSeries

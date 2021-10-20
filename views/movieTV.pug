@@ -1,0 +1,37 @@
+extends layout 
+include mixins/_info_abt_mtv
+include mixins/_model
+
+block content
+    .topper_page
+        .top_page
+            h2= title
+                //name of the movie or smth
+            .first_part 
+                img(src= parsedData.Poster)
+                .addToList
+                    button(type='button' id="atl_btn" onclick="addToList()") Add to List
+                        // actually it should be left as how it changed
+                    //- select(name='Status') 
+                    //-     option(value='1') Completed
+                    //-     option(value='2') Plan to Watch 
+                    //-     option(value='3') Rewatched 
+                    //-     option(value='4') Dropped
+    .fpage
+        .page
+            .description
+                .details 
+                    div
+                    p Description
+                p= parsedData.Plot
+            +info_abt_mtv(parsedData)
+            +model(parsedData)
+            //- .actors
+            //-     img(src='')
+            //-     h4 
+            //-     p 
+            //- .staffs 
+            //-     img(src='')
+            //-     h4 
+            //-     p
+            

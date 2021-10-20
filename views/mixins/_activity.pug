@@ -1,0 +1,26 @@
+mixin activity(newDPU)
+
+    each dataDPU in newDPU
+        .activity_wrapper    
+            .act_img
+                a(href=`/movie/${dataDPU.movieId}`)
+                    img(src= dataDPU.titleimage)
+            .act
+                .act_user
+                    span
+                        a(href=`/user/${dataDPU.username}`)= dataDPU.username
+                .act_info
+                    if(dataDPU.status === 1)
+                        p Completed 
+                            a(href=`/movie/${dataDPU.movieId}`)= dataDPU.titlename
+                    else if(dataDPU.status === 2)
+                        p Planned to watch 
+                            a(href=`/movie/${dataDPU.movieId}`)= dataDPU.titlename
+                    else if(dataDPU.status === 3)
+                        p Rewatched 
+                            a(href=`/movie/${dataDPU.movieId}`)= dataDPU.titlename
+                    else if(dataDPU.status === 4)
+                        p Dropped  
+                            a(href=`/movie/${dataDPU.movieId}`)= dataDPU.titlename
+                    a(href=`/user/${dataDPU.username}`)
+                        img(src='') 

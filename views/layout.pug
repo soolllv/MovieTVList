@@ -1,0 +1,66 @@
+doctype html
+html
+  head
+    script(src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous") 
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    script(src="/javascripts/main.js")
+    //<script src=""></script>
+  body
+    nav
+      if(user)
+        a(href='/home')
+          h3 MovieList
+      else 
+        a(href='/')
+          h3 MovieList
+      if !user
+        ul
+          li
+            a(href='/login')
+              button(type='button' class='button_small') Login
+          li
+            a(href='/sign-up') 
+              button(type='button' class='button_small') Sign-up
+      else
+        ul
+          li
+            a(href=`/home`) Home
+          li
+              a(href=`/user/${user.username}`) Profile
+          li
+            a(href=`/user/${user.username}/movielist`) Movie List
+          li
+            a(href=`/user/${user.username}/tvlist`) TV-series List
+          li
+            a(href=`/search/movie`) Browse
+    if(user)
+      .profile_nav 
+        .ulp_one
+          .li_class
+            a(href=`/user/${user.username}`)
+              <span class="material-icons">person</span>
+            a(href=`/user/${user.username}`) Profile
+          .li_class
+            a(href='/search/movie')
+              <span class="material-icons">search</span>
+            a(href='/search/movie') Search
+        .ulp_two
+          .li_class
+            a(href='/settings')
+              <span class="material-icons">settings</span>
+            a(href='/settings') Settings
+          .li_class
+            a(href='/logout')
+              <span class="material-icons">logout</span>
+            a(href='/logout') Logout
+      .profile_nav_cover
+          <span class="material-icons" onclick='clickedMenu()'>menu</span>
+    -const value = Object.values(flash || {})
+    -const keys = Object.keys(flash || {})
+    if keys.length>0
+      div(class=`message message_${keys}`)
+        span= value
+        span.close_btn(onclick="this.parentElement.remove()") &times;
+    block content

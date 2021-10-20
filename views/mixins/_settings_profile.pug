@@ -1,0 +1,31 @@
+mixin settings_profile(userData={})
+    // profile color, avatar, theme, mb banner
+    .settings
+        form(action="/settings", method="POST" enctype='multipart/form-data')
+            .stng-prf
+                p Avatar
+                .avatar
+                    input(type="file", name='image')
+                    p Drop image or click here to upload
+                .avatar 
+                    img(src=`http://res.cloudinary.com/deriq1lcf/image/upload/${userData.image}.jpg`)
+            .stng-prf
+                p About
+                input(type="input", name="about" id='about' placeholder=userData.about)
+            .stng-prf
+                button(type='submit' class="button_small") Save 
+        .stng-prf
+            p Profile Color
+            .colored_btns
+                .blue-clr
+                .yellow-clr
+                .red-clr
+                .green-clr
+                .darkblue-clr
+        .stng-prf
+            p Theme
+            .theme_btns
+                .thm-light
+                    p L
+                .thm-dark
+                    p D

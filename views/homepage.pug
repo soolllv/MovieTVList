@@ -1,0 +1,11 @@
+extends layout 
+include mixins/_activity
+block content
+    .fpage
+        h3 Activity
+        input(type="text" name="home_sts" class="wrt_status" placeholder="Write a status...")
+        .hidden
+            .pub_can_btns
+                button(type='submit' class='button_small' id='publish_btn') Publish
+                button(type='button' class='button_small' id='cancel_btn') Cancel
+        +activity(newDPU)

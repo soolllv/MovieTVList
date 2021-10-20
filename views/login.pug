@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+    .login
+        h3= title 
+        form(action="/login", method="POST")
+            .form_input
+                input(type='email' name='email' placeholder='Email' class='login_input' required)
+            .form_input
+                input(type='password' name='password' placeholder='Password' class='login_input' required)
+            .form_input 
+                button(type='submit' id='login_btn' class='button_small') Login
